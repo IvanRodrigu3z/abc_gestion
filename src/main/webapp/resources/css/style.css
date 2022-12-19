@@ -1,0 +1,24 @@
+.container{
+	padding: 10px 10%;
+	width:100%;
+}
+
+.sin-p{
+	padding:0 10px !important;
+	height:auto !important;
+	margin-bottom: 5px;
+}
+
+.btn-tbl{
+	padding:0 !important;
+	margin: 0 5px !important;
+}
+
+.prove-table-header{
+	justify-content: between;
+	
+}
+
+.pb{
+	margin-bottom: 30px !important;
+}

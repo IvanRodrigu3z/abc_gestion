@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>ABC Gestion</title>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+</h:head>
+<h:body>
+	<div class="container">
+		<h:form>
+		
+		<p:toolbar class="pb">
+            <p:toolbarGroup>
+				<p:commandButton action="#{proveedorBean.registrar()}"
+					icon="pi pi-plus" value="Añadir proveedor"
+					styleClass="ui-button-success" style="margin-right: .5rem">
+				</p:commandButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+		
+
+			<p:dataTable id="lst-proveedores" value="#{proveedorBean.obtenerProveedores()}"
+				var="proveedor" rowClasses="sin-p" paginator="true" row="10" paginatorPosition="bottom" rowSelectMode="add">
+
+				<f:facet name="header">
+					<div class="flex justify-content-between">
+						<span style="font-weight: bold;">Listado de proveedores</span>
+						 <span class="filter-container ui-input-icon-left"> 
+						 	<i class="pi pi-search"></i> 
+							<p:inputText id="globalFilter" onkeyup="PF('lst-proveedores').filter()" placeholder="Search" />
+						</span>
+					</div>
+				</f:facet>
+
+				<p:column headerText="Nombres" class="sin-p">
+					<p:outputLabel value="#{proveedor.nombre}"></p:outputLabel>
+				</p:column>
+
+				<p:column headerText="Apellidos" class="sin-p">
+					<p:outputLabel value="#{proveedor.apellido}"></p:outputLabel>
+				</p:column>
+
+				<p:column headerText="No identificación" class="sin-p">
+					<p:outputLabel value="#{proveedor.identificacion}"></p:outputLabel>
+				</p:column>
+
+				<p:column headerText="Dirección" class="sin-p">
+					<p:outputLabel value="#{proveedor.direccion}"></p:outputLabel>
+				</p:column>
+				<p:column headerText="Correo" class="sin-p">
+					<p:outputLabel value="#{proveedor.correo}"></p:outputLabel>
+				</p:column>
+				<p:column headerText="Vehiculos disponibles" class="sin-p">
+					<p:outputLabel value="#{proveedor.cant_vehi}"></p:outputLabel>
+				</p:column>
+
+				<p:column exportable="false" class="sin-p">
+					<p:commandButton action="#{proveedorBean.editar(proveedor.id)}" icon="pi pi-pencil"
+						styleClass="edit-button rounded-button ui-button-success btn-tbl"></p:commandButton>
+					<p:commandButton action="#{proveedorBean.eliminar(proveedor.id)}"
+						class="ui-button-danger rounded-button btn-tbl" icon="pi pi-trash"></p:commandButton>
+				</p:column>
+				
+			</p:dataTable>
+		</h:form>
+	</div>
+</h:body>
+</html>

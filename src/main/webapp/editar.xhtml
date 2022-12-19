@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Editar</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panelGrid columns="2" cellspacing="20">
+			<f:facet name="header">
+				<p:outputText value="Detalle proveedor"></p:outputText>
+			</f:facet>
+			
+			<p:outputText value="Nombres:"></p:outputText>
+			<p:inputText value="#{proveedor.nombre}"></p:inputText>
+			
+			<p:outputText value="Apellidos:"></p:outputText>
+			<p:inputText value="#{proveedor.apellido}"></p:inputText>
+			
+			<p:outputText value="No identificación::"></p:outputText>
+			<p:inputText value="#{proveedor.identificacion}"></p:inputText>
+			
+			<p:outputText value="Dirección:"></p:outputText>
+			<p:inputText value="#{proveedor.direccion}"></p:inputText>
+			
+			<p:outputText value="Email:"></p:outputText>
+			<p:inputText value="#{proveedor.correo}"></p:inputText>
+			
+			<p:outputText value="Veihiculos disponibles:"></p:outputText>
+			<p:inputText value="#{proveedor.cant_vehi}"></p:inputText>
+			
+			<f:facet name="footer">
+				<p:commandButton action="#{proveedorBean.actualizar(proveedor)}" value="Actualizar"></p:commandButton>
+			</f:facet>
+		</p:panelGrid>
+	</h:form>
+</h:body>
+</html>
