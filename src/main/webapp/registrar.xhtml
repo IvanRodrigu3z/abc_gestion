@@ -10,29 +10,37 @@
 	<title>Registrar</title>
 </h:head>
 <h:body>
+	<p:toolbar class="pb">
+		<p:toolbarGroup>
+			<p:linkButton outcome="index.xhtml" value="Listado de proveedores"
+				style="margin-right:20px;">
+				<f:param name="productId" value="10" />
+			</p:linkButton>
+		</p:toolbarGroup>
+	</p:toolbar>
 	<h:form>
 		<p:panelGrid columns="2" cellspacing="20">
 			<f:facet name="header">
-				<p:outputText value="Crear nuevo proveedor"></p:outputText>
+				<p:outputLabel value="Crear nuevo proveedor"></p:outputLabel>
 			</f:facet>
 			
-			<p:outputText value="Nombres:"></p:outputText>
+			<p:outputLabel value="Nombres:"></p:outputLabel>
 			<p:inputText value="#{proveedor.nombre}"></p:inputText>
 			
-			<p:outputText value="Apellidos:"></p:outputText>
+			<p:outputLabel value="Apellidos:"></p:outputLabel>
 			<p:inputText value="#{proveedor.apellido}"></p:inputText>
 			
-			<p:outputText value="No identificación::"></p:outputText>
-			<p:inputText value="#{proveedor.identificacion}"></p:inputText>
+			<p:outputLabel value="No identificación::"></p:outputLabel>
+			<p:inputText value="#{proveedor.identificacion}" type="number"></p:inputText>
 			
-			<p:outputText value="Dirección:"></p:outputText>
+			<p:outputLabel value="Dirección:"></p:outputLabel>
 			<p:inputText value="#{proveedor.direccion}"></p:inputText>
 			
-			<p:outputText value="Email:"></p:outputText>
-			<p:inputText value="#{proveedor.correo}"></p:inputText>
+			<p:outputLabel value="Email:"></p:outputLabel>
+			<p:inputText value="#{proveedor.correo}" type="email"></p:inputText>
 			
-			<p:outputText value="Veihiculos disponibles:"></p:outputText>
-			<p:inputText value="#{proveedor.cant_vehi}"></p:inputText>
+			<p:outputLabel value="Veihiculos disponibles:"></p:outputLabel>
+			<p:inputText value="#{proveedor.cant_vehi}" type="number"></p:inputText>
 			
 			<f:facet name="footer">
 				<p:commandButton action="#{proveedorBean.guardar(proveedor)}" value="Guardar"></p:commandButton>
