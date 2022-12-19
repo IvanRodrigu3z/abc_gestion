@@ -59,7 +59,7 @@ public class ProveedorBean {
 	public String guardar(Proveedor proveedor) {
 		ProveedorDAO provDAO = new ProveedorDAO();
 		provDAO.guardar(proveedor);
-		
+		System.out.println("Nuevo registro");
 		return "/faces/index.xhtml";
 	}
 }
